@@ -102,11 +102,21 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
 
-    window = rg.RoseWindow
-    circle = rg.Circle
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    start = rectangle.get_upper_right_corner()
+    end = rectangle.get_lower_left_corner()
+    line = rg.Line(start, end)
+    line.attach_to(window)
+    line.arrow = 'first'
+    window.render()
+    window.continue_on_mouse_click()
+    circle.fill_color = rectangle.outline_color
 
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -176,6 +186,8 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
